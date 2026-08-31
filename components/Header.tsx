@@ -24,7 +24,7 @@ export function Header() {
   };
 
   return <header className="site-header"><div className="container header-inner">
-    <Link href="#inicio" className="brand" onClick={()=>setOpen(false)} aria-label="Gestoría AyS - inicio"><Image src="/logo.png" alt="" width={34} height={34} className="brand-logo" priority/><span>GESTORÍA AyS</span></Link>
+    <Link href="#inicio" className="brand" onClick={()=>setOpen(false)} aria-label="Gestoría AyS - inicio"><span className="brand-logo-wrap"><Image src="/logo.png" alt="" width={34} height={34} className="brand-logo" priority/></span><span>GESTORÍA AyS</span></Link>
     <nav className={open?'desktop-nav mobile-open':'desktop-nav'} aria-label="Navegación principal">{links.map(([label,href])=><Link key={href} href={href} onClick={()=>setOpen(false)}>{label}</Link>)}<button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={dark?'Activar modo claro':'Activar modo oscuro'} title={dark?'Modo claro':'Modo oscuro'}>{dark?<Sun size={17}/>:<Moon size={17}/>}</button></nav>
     <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label={open?'Cerrar menú':'Abrir menú'} aria-expanded={open}>{open?<X/>:<Menu/>}</button>
   </div></header>;
