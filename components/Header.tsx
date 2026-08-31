@@ -1,14 +1,29 @@
 'use client';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export function Header() {
   const [open,setOpen]=useState(false);
-  const links=[['Inicio','#inicio'],['Preguntas frecuentes','#faq'],['Contacto','#contacto']];
+  const [dark,setDark]=useState(false);
+  const links=[['Inicio','#inicio'],['Ver servicios','#servicios'],['Preguntas frecuentes','#faq'],['Contacto','#contacto']];
+
+  useEffect(()=>{
+    const saved=localStorage.getItem('ays-theme')==='dark';
+    setDark(saved);
+    document.documentElement.classList.toggle('dark',saved);
+  },[]);
+
+  const toggleTheme=()=>{
+    const next=!dark;
+    setDark(next);
+    document.documentElement.classList.toggle('dark',next);
+    localStorage.setItem('ays-theme',next?'dark':'light');
+  };
+
   return <header className="site-header"><div className="container header-inner">
     <Link href="#inicio" className="brand" onClick={()=>setOpen(false)} aria-label="Gestoría AyS - inicio"><span>GESTORÍA AyS</span></Link>
-    <nav className={open?'desktop-nav mobile-open':'desktop-nav'} aria-label="Navegación principal">{links.map(([label,href])=><Link key={href} href={href} onClick={()=>setOpen(false)}>{label}</Link>)}</nav>
+    <nav className={open?'desktop-nav mobile-open':'desktop-nav'} aria-label="Navegación principal">{links.map(([label,href])=><Link key={href} href={href} onClick={()=>setOpen(false)}>{label}</Link>)}<button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={dark?'Activar modo claro':'Activar modo oscuro'} title={dark?'Modo claro':'Modo oscuro'}>{dark?<Sun size={17}/>:<Moon size={17}/>}<span>{dark?'Modo claro':'Modo oscuro'}</span></button></nav>
     <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label={open?'Cerrar menú':'Abrir menú'} aria-expanded={open}>{open?<X/>:<Menu/>}</button>
   </div></header>;
 }
