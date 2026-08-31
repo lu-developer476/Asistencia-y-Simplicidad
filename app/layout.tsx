@@ -5,7 +5,7 @@ import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Gestoría AyS - Asistencia y Simplicidad',
-  description: 'Consultoría y gestiones administrativas.',
+  description: 'Consultoría y gestiones administrativas',
   keywords: ['gestoría','Ley 6116','ascensores','AGIP','calderas','IFCI','termografía','Buenos Aires'],
   metadataBase: new URL('https://asistencia-y-simplicidad.netlify.app'),
   icons: {
