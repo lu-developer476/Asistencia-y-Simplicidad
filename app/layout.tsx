@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://asistencia-y-simplicidad.netlify.app'),
 };
 
+const structuredData = { '@context':'https://schema.org', '@type':'Organization', name:'Gestoría AyS', email:'ays.informes@gmail.com', telephone:'+54 11 5660-9916', url:'https://asistencia-y-simplicidad.netlify.app' };
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es"><body><Header /><main>{children}</main><Footer /></body></html>;
+  return <html lang="es"><body><Header/><main>{children}</main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/></body></html>;
 }
