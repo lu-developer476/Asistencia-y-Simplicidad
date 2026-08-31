@@ -6,12 +6,13 @@ import { useEffect, useState } from 'react';
 export function Header() {
   const [open,setOpen]=useState(false);
   const [dark,setDark]=useState(false);
-  const links=[['Inicio','#inicio'],['Ver servicios','#servicios'],['Preguntas frecuentes','#faq'],['Contacto','#contacto']];
+  const links=[['Inicio','#inicio'],['Servicios','#servicios'],['Preguntas frecuentes','#faq'],['Contacto','#contacto']];
 
   useEffect(()=>{
-    const saved=localStorage.getItem('ays-theme')==='dark';
-    setDark(saved);
-    document.documentElement.classList.toggle('dark',saved);
+    const saved=localStorage.getItem('ays-theme');
+    const isDark=saved==='dark';
+    setDark(isDark);
+    document.documentElement.classList.toggle('dark',isDark);
   },[]);
 
   const toggleTheme=()=>{
