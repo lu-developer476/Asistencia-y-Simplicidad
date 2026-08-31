@@ -1,0 +1,2 @@
+function json(data:unknown,status=200){return new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json; charset=utf-8'}})}
+export default async function handler(request:Request){if(request.method!=='POST')return json({ok:true,service:'Gestoría AyS contact endpoint'});const body=await request.json().catch(()=>null) as Record<string,string>|null;if(!body?.nombre||!body?.email||!body?.mensaje)return json({ok:false,error:'Faltan campos obligatorios.'},400);return json({ok:true,received:true,message:'Consulta validada correctamente.'})}
