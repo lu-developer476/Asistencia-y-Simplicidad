@@ -1,6 +1,6 @@
 # Gestoría AyS
 
-Sitio web corporativo desarrollado para **Gestoría AyS**, orientado a la presentación de sus servicios y a la gestión de consultas mediante un formulario de contacto integrado.
+Sitio web corporativo desarrollado para la presentación de sus servicios y gestión de consultas mediante un formulario de contacto integrado.
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.24-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.1.1-61DAFB?logo=react&logoColor=000000)](https://react.dev/)
